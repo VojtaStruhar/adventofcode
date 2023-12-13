@@ -62,6 +62,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3_Gear_Ratios"
+               BuildableName = "3_Gear_Ratios"
+               BlueprintName = "3_Gear_Ratios"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -85,9 +99,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2_Cube_Conundrum"
-            BuildableName = "2_Cube_Conundrum"
-            BlueprintName = "2_Cube_Conundrum"
+            BlueprintIdentifier = "3_Gear_Ratios"
+            BuildableName = "3_Gear_Ratios"
+            BlueprintName = "3_Gear_Ratios"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -111,9 +125,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2_Cube_Conundrum"
-            BuildableName = "2_Cube_Conundrum"
-            BlueprintName = "2_Cube_Conundrum"
+            BlueprintIdentifier = "3_Gear_Ratios"
+            BuildableName = "3_Gear_Ratios"
+            BlueprintName = "3_Gear_Ratios"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
