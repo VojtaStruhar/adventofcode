@@ -12,17 +12,6 @@ import AdventOfCode
 struct GameRecord {
     var id: Int
     var reveals: [Reveal] = []
-    
-    func maxRed() -> Int {
-        return reveals.map({rev in rev.red}).max()!
-    }
-    func maxGreen() -> Int {
-        return reveals.map({rev in rev.green}).max()!
-    }
-    func maxBlue() -> Int {
-        return reveals.map({rev in rev.blue}).max()!
-    }
-    
 }
 
 struct Reveal {
@@ -46,11 +35,11 @@ let gameRecords: [GameRecord] = try! DataReader.processFile("2_Cube_Conundrum/in
     for revealString in reveals {
         let diceShow = revealString.split(separator: ",").map { el in el.trimmingCharacters(in: .whitespaces)}
         
+        var reveal = Reveal()
+        
         for diceInput in diceShow {
             let diceInputParts = diceInput.split(separator: " ")
             guard let count = Int(diceInputParts[0]) else { continue }
-            
-            var reveal = Reveal()
             
             switch diceInputParts[1] {
             case "red":
@@ -63,19 +52,36 @@ let gameRecords: [GameRecord] = try! DataReader.processFile("2_Cube_Conundrum/in
                 continue
             }
             
-            gameRecord.reveals.append(reveal)
         }
+        gameRecord.reveals.append(reveal)
     }
     
     return gameRecord
 }
 
-var total: Int = 0
+var possibleGamesIDsSum: Int = 0
+var gamePowerSum: Int = 0
 
 for game in gameRecords {
-    if game.maxRed() <= 12 && game.maxGreen() <= 13 && game.maxBlue() <= 14 {
-        total += game.id
+    var maxRed = 0
+    var maxGreen = 0
+    var maxBlue = 0
+    
+    for reveal in game.reveals {
+        maxRed = max(maxRed, reveal.red)
+        maxGreen = max(maxGreen, reveal.green)
+        maxBlue = max(maxBlue, reveal.blue)
     }
+
+    // Task 1
+    if maxRed <= 12 && maxGreen <= 13 && maxBlue <= 14 {
+        possibleGamesIDsSum += game.id
+    }
+    
+    // Task 2
+    let gamePower = maxRed * maxGreen * maxBlue
+    gamePowerSum += gamePower
 }
 
-print("[Task 2.1]", total)
+print("[Task 2.1]", possibleGamesIDsSum)
+print("[Task 2.2]", gamePowerSum)
