@@ -10,12 +10,12 @@ import AdventOfCode
 
 
 enum ManualEntry: CustomStringConvertible {
-    case symbol(index: Int)
+    case symbol(index: Int, gearbox: Bool)
     case number(start: Int, end: Int, value: Int)
     
     var description: String {
         switch self {
-        case .symbol(let index): return "<Symbol \(index)>"
+        case .symbol(let index, let gb): return "<\(gb ? "Gearbox" : "Symbol") \(index)>"
         case .number(let start, let end, let val): return "<Number \(start)-\(end): \(val)>"
         }
     }
@@ -58,7 +58,7 @@ for line in lines {
             
             // Check if we have a symbol
             if letter != "." {
-                entries[entries.count - 1].append(.symbol(index: currentIndex))
+                entries[entries.count - 1].append(.symbol(index: currentIndex, gearbox: letter == "*"))
             }
         }
         
@@ -74,48 +74,96 @@ for line in lines {
 }
 
 
-var total = 0
+var partNumbersTotal = 0
+var gearRatiosTotal = 0
 
 for y in 0 ..< entries.count {
     let row = entries[y]
     
-    for num in row {
-        if case .number(_, _, value: let value) = num {
-            // Find if there are any surrounding symbols. Computed variable
-            var result: Int {
+    for element in row {
+        switch element {
+        case .number(_, _, value: let value):
+            // Find if there are any surrounding symbols. Task 1
+            var partNumberContribution: Int {
                 if y > 0 {
                     // check row above
                     for sym in entries[y - 1] {
-                        if case .symbol(_) = sym, areAround(symbol: sym, around: num) {
+                        if case .symbol(_, _) = sym, areAround(symbol: sym, around: element) {
                             return value // succcess
                         }
                     }
                 }
                 // check current row
                 for sym in row {
-                    if case .symbol(_) = sym, areAround(symbol: sym, around: num) {
+                    if case .symbol(_, _) = sym, areAround(symbol: sym, around: element) {
                         return value // succcess
                     }
                 }
                 if y < entries.count - 1 {
                     // check row below
                     for sym in entries[y + 1] {
-                        if case .symbol(_) = sym, areAround(symbol: sym, around: num) {
+                        if case .symbol(_, _) = sym, areAround(symbol: sym, around: element) {
                             return value // succcess
                         }
                     }
                 }
                 return 0
             }
-            total += result
-        }
+            partNumbersTotal += partNumberContribution
+         
+        case .symbol(_, true):
+            
+            var gearRatio: Int {
+                var around = 0
+                var ratio = 1
+                if y > 0 {
+                    // check row above
+                    for num in entries[y - 1] {
+                        if case .number(_, _, let value) = num, areAround(symbol: element, around: num) {
+                            around += 1
+                            ratio *= value
+                            if around == 2 {
+                                return ratio
+                            }
+                        }
+                    }
+                }
+                
+                // check current row
+                for num in row {
+                    if case .number(_, _, let value) = num, areAround(symbol: element, around: num) {
+                        around += 1
+                        ratio *= value
+                        if around == 2 {
+                            return ratio
+                        }
+                    }
+                }
+                if y < entries.count - 1 {
+                    // check row below
+                    for num in entries[y + 1] {
+                        if case .number(_, _, let value) = num, areAround(symbol: element, around: num) {
+                            around += 1
+                            ratio *= value
+                            if around == 2 {
+                                return ratio
+                            }
+                        }
+                    }
+                }
+                return 0
+            }
+            gearRatiosTotal += gearRatio
+        default:
+            continue        }
     }
 }
 
-print("Total:", total)
+print("Parts:", partNumbersTotal) // Task 1
+print("Gear ratios:", gearRatiosTotal) // Task 2
 
 func areAround(symbol: ManualEntry, around number: ManualEntry) -> Bool {
-    if case .symbol(let index) = symbol, case .number(let start, let end, _) = number {
+    if case .symbol(let index, _) = symbol, case .number(let start, let end, _) = number {
         return ((start - 1)...(end + 1)).contains(index)
     }
     print("Bad input")
