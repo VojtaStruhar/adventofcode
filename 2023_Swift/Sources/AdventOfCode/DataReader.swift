@@ -24,4 +24,10 @@ public class DataReader {
         let file = try String(contentsOfFile: filePath)
         return file
     }
+    
+    /// Parses lines of the file into custom structures with a provided function.
+    public static func processFile<T>(_ relativePath: String, _ transform: (_ line: Substring) -> T) throws -> [T] {
+        let lines = try readFile(relativePath).split(separator: "\n")
+        return lines.map(transform)
+    }
 }

@@ -48,6 +48,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2_Cube_Conundrum"
+               BuildableName = "2_Cube_Conundrum"
+               BlueprintName = "2_Cube_Conundrum"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -71,12 +85,21 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2_Cube_Conundrum"
+            BuildableName = "2_Cube_Conundrum"
+            BlueprintName = "2_Cube_Conundrum"
+            ReferencedContainer = "container:">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
             BlueprintIdentifier = "2_Whatever"
             BuildableName = "2_Whatever"
             BlueprintName = "2_Whatever"
             ReferencedContainer = "container:">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -88,9 +111,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2_Whatever"
-            BuildableName = "2_Whatever"
-            BlueprintName = "2_Whatever"
+            BlueprintIdentifier = "2_Cube_Conundrum"
+            BuildableName = "2_Cube_Conundrum"
+            BlueprintName = "2_Cube_Conundrum"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
