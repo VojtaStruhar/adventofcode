@@ -11,9 +11,9 @@ let package = Package(
     ],
     
     targets: [
-        .executableTarget(name: "1_Trebuchet", dependencies: ["Shared"]),
+        .executableTarget(name: "1_Trebuchet", dependencies: ["AdventOfCode"]),
         
         // Shared folder with all common goodies
-        .target(name: "Shared", resources: [.process("Shared")])
+        .target(name: "AdventOfCode", resources: [.process("AdventOfCode")])
     ]
 )
