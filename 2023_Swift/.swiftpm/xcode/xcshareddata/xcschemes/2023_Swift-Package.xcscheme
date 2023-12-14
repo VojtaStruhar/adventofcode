@@ -76,6 +76,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4_Scratchcards"
+               BuildableName = "4_Scratchcards"
+               BlueprintName = "4_Scratchcards"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -99,9 +113,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3_Gear_Ratios"
-            BuildableName = "3_Gear_Ratios"
-            BlueprintName = "3_Gear_Ratios"
+            BlueprintIdentifier = "4_Scratchcards"
+            BuildableName = "4_Scratchcards"
+            BlueprintName = "4_Scratchcards"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -125,9 +139,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3_Gear_Ratios"
-            BuildableName = "3_Gear_Ratios"
-            BlueprintName = "3_Gear_Ratios"
+            BlueprintIdentifier = "4_Scratchcards"
+            BuildableName = "4_Scratchcards"
+            BlueprintName = "4_Scratchcards"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
