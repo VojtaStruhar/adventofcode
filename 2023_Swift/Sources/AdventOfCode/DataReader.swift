@@ -31,3 +31,12 @@ public class DataReader {
         return lines.map(transform)
     }
 }
+
+
+public func ipow(_ base: Int, _ ex: Int) -> Int {
+    var result = 1
+    for _ in 0 ..< ex {
+        result *= base
+    }
+    return result    
+}

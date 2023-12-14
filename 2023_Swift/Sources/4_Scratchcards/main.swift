@@ -13,19 +13,21 @@ struct Scratchcard {
     let numbers: [Int]
     
     func points() -> Int {
+        let m = matches()
+        if m == 0 {
+            return 0
+        }
+        return ipow(2, m - 1)
+    }
+    
+    func matches() -> Int {
         var registry: [Int: Bool] = [:]
         for n in numbers { registry[n] = true }
         
         var score = 0
 
-        for w in winning {
-            if registry[w] ?? false {
-                if score == 0 {
-                    score = 1
-                } else {
-                    score *= 2
-                }
-            }
+        for w in winning where registry[w] ?? false {
+            score += 1
         }
         
         return score
@@ -46,3 +48,16 @@ let points: Int = cards.reduce(0) { partialResult, card in
 }
 
 print("Points:", points)
+
+var cardCount: [Int] = [Int](repeating: 1, count: cards.count)
+
+for i in 0 ..< cards.count {
+    let card = cards[i]
+    for j in 0 ..< card.matches() {
+        // The assignment says this will not run out of bounds
+        cardCount[i + j + 1] += cardCount[i]
+    }
+}
+
+
+print("Total cards:", cardCount.reduce(0, +))
