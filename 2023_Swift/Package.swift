@@ -10,6 +10,7 @@ let package = Package(
         .executable(name: "2_Cube_Conundrum", targets: ["2_Cube_Conundrum"]),
         .executable(name: "3_Gear_Ratios", targets: ["3_Gear_Ratios"]),
         .executable(name: "4_Scratchcards", targets: ["4_Scratchcards"]),
+        .executable(name: "5_Fertilizer", targets: ["5_Fertilizer"]),
         .executable(name: "14_Parabolic_Reflector_Dish", targets: ["14_Parabolic_Reflector_Dish"]),
     ],
     
@@ -18,6 +19,7 @@ let package = Package(
         .executableTarget(name: "2_Cube_Conundrum", dependencies: ["AdventOfCode"]),
         .executableTarget(name: "3_Gear_Ratios", dependencies: ["AdventOfCode"]),
         .executableTarget(name: "4_Scratchcards", dependencies: ["AdventOfCode"]),
+        .executableTarget(name: "5_Fertilizer", dependencies: ["AdventOfCode"]),
         .executableTarget(name: "14_Parabolic_Reflector_Dish", dependencies: ["AdventOfCode"]),
         
         // Shared folder with all common goodies
