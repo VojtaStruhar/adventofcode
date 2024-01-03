@@ -104,6 +104,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6_Wait_For_It"
+               BuildableName = "6_Wait_For_It"
+               BlueprintName = "6_Wait_For_It"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -127,9 +141,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5_Fertilizer"
-            BuildableName = "5_Fertilizer"
-            BlueprintName = "5_Fertilizer"
+            BlueprintIdentifier = "6_Wait_For_It"
+            BuildableName = "6_Wait_For_It"
+            BlueprintName = "6_Wait_For_It"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -153,9 +167,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5_Fertilizer"
-            BuildableName = "5_Fertilizer"
-            BlueprintName = "5_Fertilizer"
+            BlueprintIdentifier = "6_Wait_For_It"
+            BuildableName = "6_Wait_For_It"
+            BlueprintName = "6_Wait_For_It"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>

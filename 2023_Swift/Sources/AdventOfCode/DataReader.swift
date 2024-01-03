@@ -9,6 +9,7 @@ import Foundation
 
 public enum AdventOfCodeError: Error {
     case FileNotFound(path: String)
+    case BadData(message: String)
 }
 
 
