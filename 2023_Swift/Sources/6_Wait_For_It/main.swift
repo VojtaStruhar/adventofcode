@@ -20,6 +20,11 @@ struct Race {
     init(time: Int) {
         self.time = time
     }
+    
+    init(time: Int, recordDistance: Int) {
+        self.time = time
+        self.recordDistance = recordDistance
+    }
 }
 
 extension Race: CustomStringConvertible {
@@ -63,4 +68,27 @@ func task1() throws -> Int {
 }
 
 
+
+func task2() throws -> Int {
+    guard let time = Int(lineParts[0].suffix(lineParts[0].count - 1).joined()) else { throw AdventOfCodeError.BadData(message: "Failed to convert times to a number")}
+    guard let distance = Int(lineParts[1].suffix(lineParts[1].count - 1).joined()) else { throw AdventOfCodeError.BadData(message: "Failed to convert distances to a number")}
+    
+    let race = Race(time: time, recordDistance: distance)
+
+    var winConfigurations = 0
+    /// With such a large input, the linear complexity of this solution really starts to show. Which I have no doubt was the intention of the second task.
+    for holdTime in 0 ... race.time {
+        let speedPerMs = holdTime
+        
+        let reachedDistance = speedPerMs * (race.time - holdTime)
+        
+        if reachedDistance > race.recordDistance {
+            winConfigurations += 1
+        }
+    }
+    
+    return winConfigurations
+}
+
 print("Result 1:", try task1())
+print("Result 2:", try task2())
