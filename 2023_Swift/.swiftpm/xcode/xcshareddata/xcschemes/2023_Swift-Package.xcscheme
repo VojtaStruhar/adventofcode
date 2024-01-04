@@ -118,6 +118,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7_Camel_Cards"
+               BuildableName = "7_Camel_Cards"
+               BlueprintName = "7_Camel_Cards"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -141,9 +155,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6_Wait_For_It"
-            BuildableName = "6_Wait_For_It"
-            BlueprintName = "6_Wait_For_It"
+            BlueprintIdentifier = "7_Camel_Cards"
+            BuildableName = "7_Camel_Cards"
+            BlueprintName = "7_Camel_Cards"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -167,9 +181,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6_Wait_For_It"
-            BuildableName = "6_Wait_For_It"
-            BlueprintName = "6_Wait_For_It"
+            BlueprintIdentifier = "7_Camel_Cards"
+            BuildableName = "7_Camel_Cards"
+            BlueprintName = "7_Camel_Cards"
             ReferencedContainer = "container:">
          </BuildableReference>
       </BuildableProductRunnable>
