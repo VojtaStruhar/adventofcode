@@ -19,4 +19,35 @@ function M.print2D(listoflists)
     end
 end
 
+function M.create_history(number_row)
+    local history = { number_row }
+    local current_row = number_row
+
+    while not M.is_all_zeroes(current_row) do
+        local diff_row = {}
+        for i = 1, #current_row - 1, 1 do
+            table.insert(diff_row, current_row[i + 1] - current_row[i])
+        end
+        table.insert(history, diff_row)
+        current_row = diff_row
+    end
+
+    return history
+end
+
+function M.lines_iterator(filename)
+    local f = io.open(filename)
+    if f == nil then
+        print("FAILED TO OPEN: " .. filename)
+        return function()
+            return nil
+        end
+    end
+
+    print("Reading " .. filename)
+    return function()
+        return f:read("l")
+    end
+end
+
 return M

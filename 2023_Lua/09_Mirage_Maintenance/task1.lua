@@ -1,33 +1,19 @@
 local filename = arg[1] or "input.txt"
-local f = io.open(filename)
-if f == nil then
-    print("FAILED TO OPEN: " .. filename)
-    return
-end
-print("Reading " .. filename)
-
 local utils = require("utils")
 local last = utils.last
 
-local line = f:read("l")
+local get_line = utils.lines_iterator(filename)
+local line = get_line()
 local total = 0
 
+
 while line ~= nil do
-    local history = {}
     local current_row = {}
     for n in string.gmatch(line, "-?%d+") do
         table.insert(current_row, tonumber(n))
     end
-    table.insert(history, current_row)
 
-    while not utils.is_all_zeroes(current_row) do
-        local diff_row = {}
-        for i = 1, #current_row - 1, 1 do
-            table.insert(diff_row, current_row[i + 1] - current_row[i])
-        end
-        table.insert(history, diff_row)
-        current_row = diff_row
-    end
+    local history = utils.create_history(current_row)
 
     -- extrapolate
     table.insert(last(history), 0)
@@ -39,7 +25,7 @@ while line ~= nil do
     -- update score
     total = total + last(history[1])
     -- move along
-    line = f:read("l")
+    line = get_line()
 end
 
 
