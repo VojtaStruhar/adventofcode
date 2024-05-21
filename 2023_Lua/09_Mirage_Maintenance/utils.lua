@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 
 function M.is_all_zeroes(array)

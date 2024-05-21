@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 function M.load_task(filename)
 	local f = io.open(filename)
