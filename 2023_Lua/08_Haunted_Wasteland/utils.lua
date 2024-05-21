@@ -6,6 +6,7 @@ function M.load_task(filename)
 		print("FAILED TO OPEN FILE: " .. filename)
 		return
 	end
+	print("Reading `" .. filename .. "`")
 
 	local result = {
 		map = {},
