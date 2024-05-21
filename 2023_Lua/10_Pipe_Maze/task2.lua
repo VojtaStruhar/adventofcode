@@ -106,7 +106,8 @@ for y = 1, maze_height, 1 do
             edge_crosses = edge_crosses + 1
         end
 
-        if tile.ground then
+        -- we are also counting junk pipes in, not only ground
+        if not tile.animal_loop then
             if edge_crosses % 2 == 1 then
                 score = score + 1
                 print(coord(x, y))
