@@ -12,6 +12,7 @@ function M.load_task(filename)
 		map = {},
 		moves = f:read("l"),
 	}
+	result.move_count = string.len(result.moves)
 
 	local _ = f:read("l") -- skip one line
 
@@ -28,6 +29,17 @@ function M.load_task(filename)
 	end
 
 	return result
+end
+
+function M.gcd(a, b)
+	while b ~= 0 do
+		a, b = b, a % b
+	end
+	return a
+end
+
+function M.lcm(a, b)
+	return a / M.gcd(a, b) * b
 end
 
 return M

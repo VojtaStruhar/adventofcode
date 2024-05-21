@@ -1,55 +1,38 @@
 --[[
-    I wrote this in neovim btw. The lua there is alright.
+    I wrote this in neovim btw. The lua there is okay-ish lol.
 --]]
 
-local task = require("utils").load_task("input.txt")
+local utils = require("utils")
+local task = utils.load_task("input.txt")
 
 if not task then
 	return
 end
 
-local current = {}
+-- array of path lengths of starting nodes to SOME end node.
+local path_lengths = {}
 
 -- get the starting nodes, they have to end with 'A'
 for key, _ in pairs(task.map) do
 	if string.sub(key, 3, 3) == "A" then
-		table.insert(current, key)
-	end
-end
+		local steps = 0
+		local node = key
 
--- debug
-for _, value in ipairs(current) do
-	print("Starting node:", value)
-end
-
--- now iterate the `current` (starting) values until all of them end in `Z`
-
-local stepIndex = 1
-local max_iterations = 1000
-
-for iteration = 0, max_iterations, 1 do
-	-- check if we arrived at the goal
-
-	local goalReached = true
-	for index, value in ipairs(current) do
-		if string.sub(value, 3, 3) ~= "Z" then
-			goalReached = false
-			print(value .. " break after " .. tostring(index))
+		while string.sub(node, 3, 3) ~= "Z" do
+			local stepIndex = steps % task.move_count + 1
+			local move = string.sub(task.moves, stepIndex, stepIndex)
+			node = task.map[node][move]
+			steps = steps + 1
 		end
-	end
-	if goalReached then
-		print("Goal reached after " .. tostring(iteration) .. " iterations!")
-		return
-	end
+		print("Found loop for " .. key .. " at " .. tostring(steps) .. " steps")
 
-	-- advance the search
-	local move = string.sub(task.moves, stepIndex, stepIndex)
-	print(move)
-	for index, value in ipairs(current) do
-		current[index] = task.map[value][move]
+		table.insert(path_lengths, steps)
 	end
-
-	stepIndex = stepIndex % string.len(task.moves) + 1
 end
 
-print("Max iterations exceeded ", max_iterations)
+local result = path_lengths[1]
+for i = 2, #path_lengths, 1 do
+	result = utils.lcm(result, path_lengths[i])
+end
+
+print("The least common multiple of all path lengths is", math.floor(result))
