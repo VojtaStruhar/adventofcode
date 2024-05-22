@@ -1,0 +1,15 @@
+{
+    "inner_table": {
+        "can_be_number": true,
+        "some_key": "some_value"
+    },
+    "key": "value",
+    "array": [
+        "let's",
+        "get",
+        "down",
+        "to",
+        "business"
+    ],
+    "number": 12
+}

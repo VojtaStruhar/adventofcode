@@ -248,3 +248,20 @@ io.output(f)
 serialize("Hello, world!")
 serialize(69)
 io.close(f)
+
+print("-- Try JSON")
+local json = require("json")
+
+local testfile = io.open("testfile.json", "w")
+if testfile then
+    testfile:write(json.encode({
+        key = "value",
+        inner_table = {
+            some_key = "some_value",
+            can_be_number = true
+        },
+        number = 12,
+        array = { "let's", "get", "down", "to", "business" }
+    }))
+    testfile:close()
+end
