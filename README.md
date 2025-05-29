@@ -2,6 +2,7 @@
 
 This repo contains all tasks I ever did for Advent of Code.
 
+- 2024: Python, Ruby
 - 2023: Swift, Lua
 - 2022: Go
 
